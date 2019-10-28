@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>검사자 페이지</title>
+</head>
+
+<body>
+    <div class="container justify-content-center align-content-center" style="margin:10px, auto; text-align:center;">
+        <img src="hylogo.png" style="width:50%; height:50%; margin:5%">
+        <div id="selectinspectionpart">
+            <div class="alert alert-primary" role="alert">
+                검사기록 추가
+            </div>
+            충전소 리스트가 각각 버튼으로 출력
+            <br>
+            <div class="row">
+                <div class="col-4 col-md-3">
+                    <button type="button" class="btn btn-primary my-1 newinspection">카라코룸</button>
+                </div>
+                <div class="col-4 col-md-3">
+                    <button type="button" class="btn btn-primary my-1 newinspection">국회</button>
+                </div>
+                <div class="col-4 col-md-3">
+                    <button type="button" class="btn btn-primary my-1 newinspection">북경</button>
+                </div>
+                <div class="col-4 col-md-3">
+                    <button type="button" class="btn btn-primary my-1 newinspection">서경</button>
+                </div>
+                <div class="col-4 col-md-3">
+                    <button type="button" class="btn btn-primary my-1 newinspection">남경</button>
+                </div>
+            </div>
+            <br>
+            <div class="alert alert-primary" role="alert">
+                검사기록 수정
+            </div>
+            <table class="table table-striped" style="padding: 0px;">
+                <thead>
+                    <tr>
+                        <th>선택</th>
+                        <th>검사시간</th>
+                        <th>충전소</th>
+                        <th>검사자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>
+                            <div class="btn-group btn-group-vertical btn-group-sm">
+                                <button type="button" class="btn btn-primary editinspection">수정</button>
+                                <button type="button" class="btn btn-danger">PDF</button>
+                            </div>
+                        </th>
+                        <td>2019-09-30 14:22:30</td>
+                        <td>국회충전소</td>
+                        <td>김달단</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="btn-group btn-group-vertical btn-group-sm">
+                                <button type="button" class="btn btn-primary editinspection">수정</button>
+                                <button type="button" class="btn btn-danger">PDF</button>
+                            </div>
+                        </th>
+                        <td>2019-09-30 14:22:30</td>
+                        <td>천호충전소</td>
+                        <td>최거란</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="btn-group btn-group-vertical btn-group-sm">
+                                <button type="button" class="btn btn-primary editinspection">수정</button>
+                                <button type="button" class="btn btn-danger">PDF</button>
+                            </div>
+                        </th>
+                        <td>2019-09-30 14:22:30</td>
+                        <td>동경충전소</td>
+                        <td>정여진</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br> 10개씩 페이지네이션????
+        </div>
+        <div id="writeinspectionpart" style="text-align:left; display:none">
+            <div class="alert alert-primary" role="alert">
+                충전소 검사지
+            </div>
+            <label for="inspectsitename">충전소명</label>
+            <input class="form-control mb-4" id="inspectsitename" type="text" value="국회충전소" readonly>
+
+            <label for="inspecttime">검사일시</label>
+            <input class="form-control mb-4" id="inspecttime" type="text" value="2019-10-02 02:25:34" readonly>
+
+            <label for="inspectorname">검사자</label>
+            <input class="form-control mb-4" id="inspectorname" type="text" value="홍길동" readonly>
+
+            <label for="inspectstage">검사단계</label>
+            <select class="custom-select form-control mb-4" id="inspectstage">
+                <option>선택</option>
+                <option>시운전</option>
+                <option>고장조치</option>
+                <option>정기점검</option>
+            </select>
+
+            <label for="sel11">고장분류 선택</label>
+            <div class="input-group mb-4" id="sel11">
+                <select class="custom-select form-control" id="sel1">
+                    <option>1차 고장분류</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <select class="custom-select form-control" id="sel2">
+                    <option>2차 고장분류</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+
+            <label for="sel3">압축기 누적 운행시간</label>
+            <div class="input-group mb-4" id="sel3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">1호기</span>
+                </div>
+                <input class="form-control" type="text" placeholder="0시간">
+                <div class="input-group-append">
+                    <span class="input-group-text">2호기</span>
+                </div>
+                <input class="form-control" type="text" placeholder="0시간">
+            </div>
+
+            <hr class="mb-4">
+            기계 종류별, 각 기계별, 분리선 같은거. 각 기계마다 카드를 만들까? 아코디언도 괜찮다. <br>
+            검사항목별 O/X & 커멘트 textarea (300자) <br><br>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Inspection Point</th>
+                        <th>Method</th>
+                        <th>Spec</th>
+                        <th>최초점검</th>
+                        <th>점검/수리내역</th>
+                        <th>Result</th>
+                        <th>Remarks</th>
+                    </tr>
+                <tbody>
+                    <tr>
+                        <td>1. 저장용기</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            저장용기-안전변 사이 밸브 개방 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            개방상태일것
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>2. 압축기</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            배관의 리크
+                        </td>
+                        <td>
+                            비누방울
+                        </td>
+                        <td>
+                            리크없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            냉각수의 압력
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            2~4bar
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            유압 탱크의 레밸
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            표시창 표기
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            비상정지 버튼 작동유무
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            정지
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            오일 리크 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            6
+                        </td>
+                        <td>
+                            밸브류 열림/닫힘 표기 준수여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            상태와 표기 일치
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            7
+                        </td>
+                        <td>
+                            압력계 및 온도계 지시값 적정여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            계기의 한계 표기값
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>3. 제어판넬</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            배관의 리크
+                        </td>
+                        <td>
+                            비누방울
+                        </td>
+                        <td>
+                            리크없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            밸브 이상
+                        </td>
+                        <td>
+                            육안/청음
+                        </td>
+                        <td>
+                            밀림, 누설없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            압력계 및 온도계 지시값 적정여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            계기의 한계 표기값
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            4. 충전기
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            배관의 리크
+                        </td>
+                        <td>
+                            비누방울
+                        </td>
+                        <td>
+                            없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            디스플레이 이상 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            이상없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            충전기 호스 연결부 리크여부
+                        </td>
+                        <td>
+                            비누방울
+                        </td>
+                        <td>
+                            없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            RF 통신 이상상태
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            통신양호
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            압력계 및 온도계 지시값 적정여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            계기의 한계 표기값
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            5. 냉동기 / 프러쿨러
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            냉매 온도
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            -33°C ~ -40°C
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            냉매액 누출여부
+                        </td>
+                        <td>
+                            육안, 후각
+                        </td>
+                        <td>
+                            없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            6. 기계실 / 튜브트레일러
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            차량(탱크)충전시 바퀴고임목 상태
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            양호
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            저장탱크와 가스설비의 부식방지 도장상태
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            손상부위 없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            방폭등 점등여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            점등됨
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            가스설비 주위화기 및 인화성물질 방치 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            인화물질 없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            7. 전기/제어실
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            제어 시스템 알림 유무
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            판넬 환기팬 작동여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            회전, 이상소음 없음
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            8. 부정기 점검
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            비상정지 버튼 작동 상태 확인
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            비상정지가능
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            시설 점검일지 실시기록 적정유지 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            점검일지 양호
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            안전교육 실시 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            실시
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            가스누설경보기 설치 및 작동상태
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            정상작동
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            수소화염검지기의 설치 및 정상 작동 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            정상작동
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            6
+                        </td>
+                        <td>
+                            비상전력 보유 및 정상 작동 여부
+                        </td>
+                        <td>
+                            육안
+                        </td>
+                        <td>
+                            UPS 상태 정상
+                        </td>
+
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+                        <td>
+                            <div class="input-group mb-3 " style="width:100%">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" id="status1" name="good" class="custom-control-input">
+                                            <label class="custom-control-label" for="status1">정상</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group-text">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status2" name="good" class="custom-control-input">
+                                        <label class="custom-control-label" for="status2">고장</label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                        <td>
+                            <INPUT type=" TEXT" name="비고입력">
+                        </td>
+
+                    </tr>
+                </tbody>
+                </thead>
+
+
+
+            </table>
+
+            <textarea name=" ="MSG POWS ="120" cols="150"></textarea>
+
+            <br>
+            <label>사진 첨부</label>
+            <div class="" id="images">
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="image01">
+                    <label class="custom-file-label" for="image01">사진 첨부(1) </label>
+                </div>
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input " id="image02">
+                    <label class="custom-file-label" for="image02">사진 첨부(2) </label>
+                </div>
+                <div class="custom-file mb-3">
+                    <input type="file" class="custom-file-input" id="image03">
+                    <label class="custom-file-label" for="image03">사진 첨부(3)</label>
+                    <small class="form-text text-muted">사진은 최대 3장까지, 각각 500kb 크기로 저장됩니다.</small>
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="btn-group btn-block">
+                <button class="btn btn-primary" id="postinspection" style="width:70%">저장</button>
+                <button class="btn btn-danger" id="cancelwriteinspection" style="width:30%">취소</button>
+            </div>
+            <br>
+        </div>
+
+        <br><br>
+        <button class="btn btn-danger btn-block" type="submit" id="logout">로그아웃</button>
+        <br><br><br>
+    </div>
+</body>
+
+<script>
+  $(".newinspection,.editinspection").click(writeinspectionmode);
+  $("#postinspection,#cancelwriteinspection").click(selectinspectionmode);
+
+  function writeinspectionmode() {
+    document.getElementById("selectinspectionpart").style.display = "none";
+    document.getElementById("writeinspectionpart").style.display = "block";
+  }
+
+  function selectinspectionmode() {
+    document.getElementById("selectinspectionpart").style.display = "block";
+    document.getElementById("writeinspectionpart").style.display = "none";
+  }
+
+  // 검사결과 DB에 저장
+  $("#postinspection").click(fpostinspection);
+  function fpostinspection() {
+  }
+
+  // 취소, 돌아가기
+  $("#cancelwriteinspection").click(fcancelwriteinspection);
+  function fcancelwriteinspection() {
+  }
+
+  // 충전소 목록 불러와서 버튼 만들 (로드시에)
+
+  // 충전소 메타데이터 불러와서 틀 만들기 (writeinspectionmode)
+
+  // 검사기록 불러와서 틀 안에 넣기 (writeinspectionmode)
+
+
+  // 로그아웃 함수
+  $("#logout").click(dologout);
+
+  function dologout() {
+    // 로그아웃
+  }
+</script>
+
+</html>
